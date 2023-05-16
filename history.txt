@@ -1,0 +1,17 @@
+docker image pull caddy:alpine
+
+docker container run \
+> -p 1025:80 \
+> -v ${PWD}/pages:/usr/src/pages \
+> -v ${PWD}/caddyconfig:/etc/caddy \
+> -d caddy:alpine
+
+docker ps
+
+# Depois, confira em seu navegador: http://localhost:1025
+
+# Altere uma página, e então, veja a mudança ao recarregar a página no host
+
+docker container stop beautiful_noyce
+
+
